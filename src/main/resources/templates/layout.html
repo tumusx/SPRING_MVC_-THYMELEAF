@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical"
+	href="https://getbootstrap.com/docs/5.0/examples/starter-template/">
+<link
+	href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="icon"
+	href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon.ico">
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<title>Projeto Convidado</title>
+</head>
+<body>
+
+	<div class="col-lg-8 mx-auto p-3 py-md-5">
+
+		<header th:replace="fragments/header :: cabecalho">
+			<div>header</div>
+		</header>
+
+		<main>
+
+			<section layout:fragment="corpo">
+				<div>corpo</div>
+			</section>
+
+		</main>
+
+		<footer th:replace="fragments/footer :: rodape">
+			<div>footer</div>
+		</footer>
+	</div>
+
+	<script src="https://getbootstrap.com/docs/5.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
