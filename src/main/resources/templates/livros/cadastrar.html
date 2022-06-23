@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+
+	<main>
+
+		<section class="layout-content" layout:fragment="corpo">
+			<div th:replace="fragments/message"></div>
+			
+			<h1 th:text="${convidado.idConvidado == 0} ? 'Inserir Convidado': 'Editar Convidado'">Convidado</h1>
+
+			<form th:action="${convidado.idConvidado == 0} ? @{/livros/salvar} : @{/livros/editar}"
+				 th:object="${convidado}" method="post">
+
+				<div class="form-group">
+					<label for="nomeConvidado">Nome do Convidado</label>
+					<input th:field="*{nomeConvidado}" type="text" class="form-control" id="nomeConvidado">
+				</div>
+				
+				<div class="form-group">
+					<label for="tipoConvidado">Tipo do Convidado</label>
+					<input th:field="*{tipoConvidado}" type="text" class="form-control" id="tipoConvidado">
+				</div>
+
+				<div class="form-group">
+					<label for="qntdAcompanhantes">Quantidade de Acompanhantes</label>
+					<input th:field="*{qntdAcompanhantes}" type="text" class="form-control" id="qntdAcompanhantes">
+				</div>
+				
+				<input th:field="*{idConvidado}" type="hidden">
+				
+				<br>
+				<button th:text="${convidado.idConvidado == 0} ? 'Inserir': 'Editar'" type="submit" class="btn  btn-success">Inserir</button>
+				<a th:href="@{/livros/listar}"><button type="button"  class="btn  btn-warning">Listar</button></a>
+			</form>			
+
+		</section>
+
+	</main>
+
+
+</body>
+</html>
